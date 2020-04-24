@@ -36,7 +36,9 @@ dependencies:
   #youtube_player_flutter: 6.1.0+7
   #webview_flutter: ^0.3.20
   url_launcher: 5.4.5
-
+  sqflite: any
+  path_provider: any
+  intl : ^0.15.7
   flutter_svg: 0.17.4
 
 

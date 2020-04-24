@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:movieapp/ui/Saved/history_movie.dart';
 import 'package:movieapp/ui/MostPopular/popular_movie.dart';
 import 'package:movieapp/ui/TopRated/top_rated_movie.dart';
+import 'package:movieapp/util/DbHelper.dart';
+
+
+DbHelper helper = DbHelper();
+
 
 class Home extends StatefulWidget {
   @override
@@ -16,6 +21,12 @@ class HomeState extends State<Home> {
     PopularMovies(),
     HistoryMovies(),
   ];
+
+  @override
+  void initState() {
+    helper.initializeDatabase();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
