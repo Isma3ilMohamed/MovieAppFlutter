@@ -13,10 +13,11 @@ class MovieItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context)=> MovieDetails(movie: movie,))
-        );
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => MovieDetails(
+                  movie: movie,
+                )));
       },
       child: Card(
         elevation: 5,
@@ -24,77 +25,81 @@ class MovieItem extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Stack(
           children: [
-            Expanded(
-              child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10)),
-                child: AspectRatio(
-                  aspectRatio: 16.0 / 9.0,
-                  child: Image.network(
-                      "${Constanst.BASE_POSTER_URL}${movie.poster_path}",
-                      fit: BoxFit.cover),
-                ),
+            ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              child: Image.network(
+                "${Constanst.BASE_POSTER_URL}${movie.poster_path}",
+                fit: BoxFit.cover, width: 200.0,
+                height: 220.0,
               ),
             ),
-            SizedBox(height: 10),
-            Padding(
-              child: Text(
-                movie.title,
-                textScaleFactor: 1.5,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.red,
-                  fontSize: 10.0,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              padding: EdgeInsets.only(left: 10.0, right: 10.0),
-            ),
-            SizedBox(height: 10),
-            Padding(
-                child: FlutterRatingBarIndicator(
-                  rating: movie.vote_average.toDouble(),
-                  itemCount: 5,
-                  itemSize: 10.0,
-                  emptyColor: Colors.amber.withAlpha(50),
-                ),
-                padding: EdgeInsets.only(left: 10.0, right: 10.0)),
-            SizedBox(height: 10),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  child: Text(
-                    "Release Data",
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      color: Colors.grey,
-                      fontSize: 10.0,
-                    ),
+            Positioned(
+                left: 1,
+                right: 1,
+                bottom: 1,
+                child: Container(
+                  constraints: BoxConstraints(maxHeight: 100),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.5),
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(10),
+                        bottomRight: Radius.circular(10)),
                   ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  child: Text(
-                    movie.release_date,
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black,
-                      fontSize: 12.0,
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        movie.title,
+                        textScaleFactor: 1.5,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.yellowAccent[400],
+                          fontSize: 10.0,
+                        ),
+                        textAlign: TextAlign.start,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Text(
+                            "Release Data :",
+                            style: TextStyle(
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white,
+                              fontSize: 10.0,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            movie.release_date,
+                            style: TextStyle(
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white,
+                              fontSize: 12.0,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      FlutterRatingBarIndicator(
+                        rating: movie.vote_average.toDouble(),
+                        itemCount: 10,
+                        itemSize: 10.0,
+                        emptyColor: Colors.amber.withAlpha(50),
+                      )
+                    ],
                   ),
-                )
-              ],
-            ),
+                ))
           ],
         ),
       ),

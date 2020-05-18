@@ -49,12 +49,12 @@ class MovieApiProvider {
 
 
   Future<MovieReviews> getMovieReviews(int movieId) async{
-    try{
       Response response=await _dio.get("${Constanst.BASE_URL}${movieId}/reviews?api_key=${Constanst.API_KEY}");
+      if(response.statusCode!=200){
+        throw Exception("");
+      }
       return MovieReviews.fromJson(response.data);
-    } catch (error, stacktrace) {
-      print("Exception occured: $error stackTrace: $stacktrace");
-    }
+
   }
 
 }
