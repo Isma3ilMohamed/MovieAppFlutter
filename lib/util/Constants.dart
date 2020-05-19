@@ -17,8 +17,8 @@ class Constanst {
   }
 
 
+
 }
-//https://api.themoviedb.org/3/movie/popular?api_key=3f1cd7fa782a61778afe7e6ceb8d1765
 
 
 extension StringExtension on String {

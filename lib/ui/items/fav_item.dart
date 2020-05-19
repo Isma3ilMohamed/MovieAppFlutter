@@ -25,7 +25,10 @@ class FavItem extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                   ),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10.0),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10.0),
+                      bottomLeft: Radius.circular(10.0)
+                    ),
                     child: Image.network(
                       "${Constanst.BASE_POSTER_URL}${movie.poster_path}",
                       fit: BoxFit.cover,

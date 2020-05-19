@@ -1,0 +1,21 @@
+name: data
+description: A package that represent data module
+version: 0.0.1
+author:
+homepage:
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dio: ^3.0.8
+  flutter_secure_storage: ^3.3.3
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
