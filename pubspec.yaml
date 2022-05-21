@@ -31,7 +31,7 @@ dependencies:
   http: ^0.12.0+3
   lottie: 0.3.3
   dio: ^4.0.0
-  rxdart: ^0.23.1
+  rxdart: ^0.27.0
   flutter_rating_bar: ^1.1.0
   #youtube_player_flutter: 6.1.0+7
   #webview_flutter: ^0.3.20
