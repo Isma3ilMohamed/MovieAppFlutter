@@ -35,7 +35,7 @@ dependencies:
   flutter_rating_bar: ^1.1.0
   #youtube_player_flutter: 6.1.0+7
   #webview_flutter: ^0.3.20
-  url_launcher: 5.4.5
+  url_launcher: 5.7.10
   sqflite: any
   path_provider: any
   intl : ^0.15.7
