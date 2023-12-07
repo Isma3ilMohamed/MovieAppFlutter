@@ -38,7 +38,7 @@ dependencies:
   url_launcher: 5.4.5
   sqflite: any
   path_provider: any
-  intl : ^0.15.7
+  intl : ^0.19.0
   flutter_svg: 0.17.4
   flutter_slidable: "^0.5.4"
   data:
